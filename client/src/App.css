@@ -30,4 +30,13 @@
   .navbar li a:hover {
     background-color: #ddd;
   }
-  
+.footer {
+    background-color: aquamarine;
+    
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+
+
+}  

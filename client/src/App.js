@@ -1,12 +1,13 @@
 
 import './App.css';
-
-import Navbar from './navbar';
+import Footer from './component/Footer';
+import Navbar from './component/navbar';
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
+    <>
     <div className="App">
       
       <BrowserRouter>
@@ -23,6 +24,10 @@ function App() {
       </BrowserRouter>
 
     </div>
+    <div>
+      <Footer/>
+    </div>
+    </>
   );
 }
 
