@@ -40,3 +40,13 @@
 
 
 }  
+.inputBox{
+  display: block;
+  margin: 15px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid;
+}
+.signup{
+  margin-left: 30%;
+}
