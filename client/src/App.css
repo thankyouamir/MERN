@@ -50,3 +50,8 @@
 .signup{
   margin-left: 30%;
 }
+.signBtn{
+  margin: 15px;
+  padding: 7px;
+  background-color: skyblue;
+}
