@@ -1,15 +1,14 @@
 const express= require ("express");
 const app= express();
-const mongoose =require("mongoose");
-const connectDb=async ()=>{
-    mongoose.connect('mongodb://localhost:27017/mern',{})
-    .then(result=>console.log("connected"))
-    .catch(err=> console.log(err));
-    const userSchema= new mongoose.Schema({});
-    const userModel=new mongoose.model('users',userSchema);
-    const data =await userModel.find();
-    console.warn(data);
+require('./db/config');
+const user = require('./db/user');
+app.use(express.json());
 
-}
-connectDb();
+app.post("/register",async (req,res)=>{
+    let User = new user(req.body);
+    let result = await User.save();
+
+    res.send(result);
+})
+
 app.listen(5000);
