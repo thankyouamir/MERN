@@ -6,7 +6,7 @@ const navbar = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate("/signup");
+    navigate("/login");
   };
   return (
     <div className="navbar">
@@ -25,6 +25,7 @@ const navbar = () => {
           ) : (
             <Link to="/signup">SignUp</Link>
           )}
+          <Link to="/login">Login</Link>
         </li>
       </ul>
     </div>
