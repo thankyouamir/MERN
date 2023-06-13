@@ -47,10 +47,10 @@
   width: 300px;
   border: 1px solid;
 }
-.signup{
+.signup, .product{
   margin-left: 30%;
 }
-.signBtn{
+.signBtn , .addBtn{
   margin: 15px;
   padding: 7px;
   background-color: skyblue;
