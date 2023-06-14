@@ -19,6 +19,12 @@
   .navbar li:first-child {
     margin-left: 0;
   }
+  .invalid-input{
+    color: red;
+    margin-top: -20px;
+    display: block;
+    margin-left: 20px;
+  }
   
   .navbar li a {
     display: inline-block;
