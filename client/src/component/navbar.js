@@ -25,11 +25,7 @@ const navbar = () => {
           ) : (
             <Link to="/signup">SignUp</Link>
           )}
-          {auth ? (
-            <Link to="/">Welcome User</Link>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
+          {auth ? <Link>Welcome User</Link> : <Link to="/login">Login</Link>}
         </li>
       </ul>
     </div>

@@ -42,4 +42,9 @@ app.get("/products", async (req, res) => {
     res.send({ result: "no product found" });
   }
 });
+app.delete("/product/:id", async (req, res) => {
+  // res.send(req.params.id);
+  const result = await addProduct.deleteOne({ _id: req.params.id });
+  res.send(result);
+});
 app.listen(5000);
