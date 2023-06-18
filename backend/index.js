@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+
 require("./db/config");
-const user = require("./db/user");
+const userModel = require("./db/user");
+const cors = require("cors");
 const addProduct = require("./db/addProduct");
 app.use(express.json());
 app.use(cors());
 app.post("/register", async (req, res) => {
-  let User = new user(req.body);
+  let User = new userModel(req.body);
   let result = await User.save();
   result = result.toObject();
   delete result.password;
@@ -17,7 +18,7 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   console.log(req.body);
   if (req.body.email && req.body.password) {
-    let user = await User.findOne(req.body).select("-password");
+    let user = await userModel.findOne(req.body).select("-password");
     if (user) {
       res.send(user);
     } else {
@@ -73,4 +74,5 @@ app.get("/search/:key", async (req, res) => {
   });
   res.send(result);
 });
+
 app.listen(5000);

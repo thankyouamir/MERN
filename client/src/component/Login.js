@@ -14,17 +14,21 @@ const Login = () => {
   });
   const collectData = async () => {
     //   console.warn(name, email, password, passwordc);
-    let result = await fetch("http://localhost:5000/register", {
-      method: "POST",
+    let result = await fetch("http://localhost:5000/login", {
+      method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
         "Content-Type": "application/json",
       },
     });
     result = await result.json();
-    console.warn(result);
-    localStorage.setItem("user", JSON.stringify(result));
-    navigate("/");
+    // console.warn(result);
+    if (result.name) {
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/");
+    } else {
+      alert("No user Found");
+    }
   };
 
   return (

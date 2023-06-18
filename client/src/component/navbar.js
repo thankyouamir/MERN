@@ -15,8 +15,6 @@ const navbar = () => {
           <Link to="/">Home</Link>
           <Link to="/add">Add Product</Link>
 
-          <Link to="/profile">Profile</Link>
-
           {auth ? (
             <Link onClick={logout} to="/signup">
               Logout
