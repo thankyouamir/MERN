@@ -64,15 +64,23 @@ app.put("/products/:id", async (req, res) => {
   res.send(result);
 });
 app.get("/search/:key", async (req, res) => {
-  let result = await addProduct.find({
-    $or: [
-      { name: { $regex: req.params.key } },
-      { price: { $regex: req.params.key } },
-      { category: { $regex: req.params.key } },
-      { company: { $regex: req.params.key } },
-    ],
-  });
-  res.send(result);
+  try {
+    if (!isNaN(req.params.key)) {
+      result = await addProduct.find({ price: Number(req.params.key) });
+    } else {
+      result = await addProduct.find({
+        $or: [
+          { name: { $regex: req.params.key, $options: "i" } },
+          { category: { $regex: req.params.key, $options: "i" } },
+          { company: { $regex: req.params.key, $options: "i" } },
+        ],
+      });
+    }
+    res.send(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
 });
 
 app.listen(5000);
