@@ -20,6 +20,7 @@ const addProductClient = () => {
         body: JSON.stringify({ name, price, category, company, userId }),
         headers: {
           "content-type": "application/json",
+          authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       });
       if (result.ok) {
