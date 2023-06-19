@@ -27,6 +27,7 @@ const addProductClient = () => {
         result = await result.json();
 
         alert("product saved successfully");
+        setName(" "), setPrice(" "), setCategory(" "), setCompany(" ");
       } else {
         throw new Error("An error occurred while adding the product");
       }
